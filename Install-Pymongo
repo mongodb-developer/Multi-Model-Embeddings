@@ -1,1 +1,1 @@
-pip3 install pymongo
+pip install pymongo langchain
