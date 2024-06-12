@@ -1,5 +1,6 @@
 # Multi-Model-Embeddings 🦜 ⛓️
-Example code to show how to chunk + work with multiple embeddings in the same document
+Example code to show how to chunk + work with multiple embeddings in the same document.
+You can also create the vector indexes in the Atlas UI - but there is code here for that also
 
 #query multiple embedded fields
 
