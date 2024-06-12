@@ -9,12 +9,12 @@ from transformers import BertTokenizer, BertModel
 import torch
 from pymongo import MongoClient
 
-# Initialize OpenAI and Hugging Face models (same as previous example)
+# Initialize OpenAI and Hugging Face models
 openai.api_key = 'your_openai_api_key'
 tokenizer = BertTokenizer.from_pretrained('bert-base-uncased')
 model = BertModel.from_pretrained('bert-base-uncased')
 
-# Connect to MongoDB (same as previous example)
+# Connect to MongoDB
 client = MongoClient('your_mongo_connection_string')
 db = client.your_database_name
 collection = db.your_collection_name
@@ -49,8 +49,8 @@ results_field3 = collection.aggregate([
     {
         "$search": {
             "index": "field3_embedding_vector_index",
-            "knnBeta": {
-                "vector": query_embedding_openai,
+            "vector": {
+                "queryVector": query_embedding_openai,
                 "path": "field3_embedding",
                 "k": 10  # Number of nearest neighbors to retrieve
             }
@@ -63,8 +63,8 @@ results_field15 = collection.aggregate([
     {
         "$search": {
             "index": "field15_embedding_vector_index",
-            "knnBeta": {
-                "vector": query_embedding_bert,
+            "vector": {
+                "queryVector": query_embedding_bert,
                 "path": "field15_embedding",
                 "k": 10  # Number of nearest neighbors to retrieve
             }
